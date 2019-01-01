@@ -9,7 +9,7 @@ use App\Conversations\JokeConversation;
 
 $botman = resolve('botman');
 
-$botman->hears('Hi', function (BotMan $bot) {
+$botman->hears('GET_STARTED', function (BotMan $bot) {
     $bot->reply('Hello! My name is Ram.');
     $bot->typesAndWaits(3);
     $bot->reply(
