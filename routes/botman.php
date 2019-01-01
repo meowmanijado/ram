@@ -4,19 +4,22 @@ use BotMan\BotMan\BotMan;
 use BotMan\Drivers\Facebook\Extensions\ElementButton;
 use BotMan\Drivers\Facebook\Extensions\ButtonTemplate;
 use Illuminate\Support\Facades\Log;
+use BotMan\Drivers\Facebook\FacebookDriver;
+use App\Conversations\JokeConversation;
 
 $botman = resolve('botman');
 
-$botman->hears('GET_STARTED', function (BotMan $bot) {
-    Log::info('working');
+$botman->hears('Hi', function (BotMan $bot) {
+    $bot->reply('Hello! My name is Ram.');
+    $bot->typesAndWaits(3);
     $bot->reply(
-        ButtonTemplate::create('Gusto mo ng joke?')
+        ButtonTemplate::create('May joke ako')
         ->addButton(
-            ElementButton::create('Yessur')
+            ElementButton::create('Ano')
             ->type('postback')
-            ->payload('yessur')
+            ->payload('ano')
         )
     );
 });
 
-$botman->hears('yessur', BotManController::class.'@startConversation');
+$botman->hears('ano', BotManController::class.'@startConversation');
