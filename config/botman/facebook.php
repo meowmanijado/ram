@@ -103,6 +103,6 @@ return [
     |
     */
     'whitelisted_domains' => [
-        'https://petersfancyapparel.com',
+        'https://ram.geekery.co',
     ],
 ];
